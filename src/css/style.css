@@ -640,17 +640,18 @@ a.blog-card-link { text-decoration: none; color: inherit; }
 /* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   #navbar { padding: 14px 20px; }
+  .nav-toggle { display: flex; z-index: 1001; margin-right: 4px; }
   .nav-links {
     position: fixed; top: 0; right: -100%; width: 70%; height: 100vh;
     background: var(--bg); flex-direction: column; justify-content: center; align-items: center;
     gap: 32px; transition: right 0.4s; padding: 40px;
   }
   .nav-links.open { right: 0; }
-  .nav-toggle { display: flex; z-index: 1001; }
   .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
   .nav-toggle.active span:nth-child(2) { opacity: 0; }
   .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
   .section { padding: 80px 0; }
+  .container { padding: 0 20px; }
   .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .ai-journey-grid { grid-template-columns: 1fr; gap: 40px; }
   .jutsu-grid { grid-template-columns: 1fr; }
@@ -658,18 +659,32 @@ a.blog-card-link { text-decoration: none; color: inherit; }
   .mission-featured-header { flex-direction: column; }
   .mission-featured h3 { font-size: 20px; }
   .summoning-circle { width: 280px; height: 280px; }
-  .timeline { padding-left: 32px; }
-  .timeline-badge { left: -32px; width: 28px; height: 28px; font-size: 7px; }
+  /* Timeline: hide the line, make badges inline */
+  .timeline { padding-left: 0; }
+  .timeline::before { display: none; }
+  .timeline-badge {
+    position: static; width: auto; height: auto; border-radius: 20px;
+    padding: 4px 12px; font-size: 9px; margin-bottom: 12px;
+    display: inline-flex; box-shadow: none;
+  }
+  .timeline-card { margin-left: 0; }
   .ai-metrics { grid-template-columns: 1fr 1fr; }
   .mentor-quote { padding: 16px 20px; }
 }
 @media (max-width: 480px) {
   .hero-name { font-size: 40px; }
-  .hero-cta { flex-direction: column; align-items: center; }
+  .hero-cta { flex-direction: column; align-items: center; margin-bottom: 40px; }
   .btn { width: 100%; text-align: center; }
+  .scroll-indicator { bottom: 20px; }
   .stat-card { padding: 20px; }
   .stat-number { font-size: 28px; }
   .ai-metrics { grid-template-columns: 1fr; }
   .ai-stat-number { font-size: 28px; }
   .mission-metrics { justify-content: flex-start; }
+  .section-header h2 { font-size: 28px; }
+  .chronicle-card { grid-template-columns: 1fr; padding: 24px; }
+  .chronicle-number { display: none; }
+  .chronicle-cta { text-align: center; }
+  .chronicle-cta .btn { width: 100%; }
+  .chronicle-date { position: static; margin-top: 16px; text-align: center; }
 }

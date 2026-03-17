@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From One Giant Skill to an AI-Powered QA Team | Aleksa Tvrdisic</title>
+  <meta name="description" content="A story about learning, iterating, and integrating AI agents into a real QA team -- combining human judgment with AI efficiency.">
+  <meta property="og:title" content="From One Giant Skill to an AI-Powered QA Team | Aleksa Tvrdisic">
+  <meta property="og:description" content="How We Built an Agentic Quality Engineering System -- from one oversized skill to 13 specialized agents.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a href="#article-content" class="skip-nav">Skip to article</a>
+
+  <div id="loader">
+    <div class="loader-spiral"></div>
+    <p class="loader-text">Performing Hand Seals<span class="dots">...</span></p>
+  </div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <svg class="logo-spiral" viewBox="0 0 40 40" width="32" height="32">
+        <path d="M20 2a18 18 0 0 1 0 36 14 14 0 0 1 0-28 10 10 0 0 1 0 20 6 6 0 0 1 0-12 2 2 0 0 1 0 4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span>ALEKSA</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#about" data-text="About">About</a>
+      <a href="../index.html#skills" data-text="Skills">Skills</a>
+      <a href="../index.html#experience" data-text="Experience">Experience</a>
+      <a href="../index.html#ai-journey" data-text="AI Innovation">AI Innovation</a>
+      <a href="../index.html#projects" data-text="Projects">Projects</a>
+      <a href="../blog.html" class="active" data-text="Blog">Blog</a>
+      <a href="../index.html#contact" data-text="Contact">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="article-content">
+
+  <section class="blog-hero">
+    <div class="container">
+      <div class="article-header" style="text-align: center;">
+        <span class="mission-rank s-rank" style="position:relative;display:inline-flex;top:auto;right:auto;margin-bottom:16px;">S</span>
+        <h1>From One Giant Skill to an AI-Powered QA Team: How We Built an Agentic Quality Engineering System</h1>
+        <p class="article-subtitle">A story about learning, iterating, and integrating AI agents into a real QA team &mdash; combining human judgment with AI efficiency.</p>
+        <div class="article-meta" style="justify-content: center;">
+          <span>February&ndash;March 2026</span>
+          <span>&bull;</span>
+          <span>~25 min read</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-card" style="border: none; background: none; padding: 0;">
+        <article class="article">
+          <div class="article-body">
+
+            <h3>The Beginning: One Skill to Rule Them All</h3>
+
+            <p>It started with curiosity.</p>
+
+            <p>Before I knew anything about agentic AI, agent orchestration, or prompt engineering patterns, I discovered Claude's skill system. I thought: what if I could teach Claude everything about our QA process and have it help us write test cases?</p>
+
+            <p>So I built a skill. One massive skill.</p>
+
+            <p>It had everything in it &mdash; every navigation path in our application, every test case pattern, every business rule, acceptance criteria examples, domain terminology, automation conventions, page object structures. It was a comprehensive instruction manual for our entire QA process, packed into a single file.</p>
+
+            <p>And it worked. Sort of.</p>
+
+            <p>The skill was too large. It consumed enormous amounts of tokens. It was hard to update &mdash; changing one thing meant re-importing the entire package. Sharing it with the team was a nightmare because it was zipped and imported into Claude Desktop as a single monolithic block. Every update meant re-zipping, re-importing, and hoping nothing broke.</p>
+
+            <p>But the idea was right. The execution needed to evolve.</p>
+
+            <hr>
+
+            <h3>The Turning Point: &ldquo;Your Skill Is Too Big&rdquo;</h3>
+
+            <p>The breakthrough came from a conversation with Dragan Spiridonov, who looked at what I'd built and said something that changed my approach entirely:</p>
+
+            <blockquote>&ldquo;Your skill is too big. A skill should just be a short, specific instruction for an agent &mdash; not an encyclopedia.&rdquo;</blockquote>
+
+            <p>My skill had all the data, all the paths, all the instructions, all the test case examples, everything bundled together. What it should have been was a focused directive &mdash; a concise set of rules that tells an agent exactly what to do, not everything it might ever need to know.</p>
+
+            <p>That distinction &mdash; between instructions and knowledge &mdash; became the foundation for everything that followed.</p>
+
+            <hr>
+
+            <h3>Phase 1: Breaking the Monolith</h3>
+
+            <p>I started decomposing. The single massive skill became multiple focused files:</p>
+
+            <ul>
+              <li><strong>skill.md</strong> became the primary instruction source &mdash; short, specific, directive</li>
+              <li><strong>knowledgebase.md</strong> held the domain knowledge</li>
+              <li><strong>gaps.md</strong> documented what we didn't know yet</li>
+              <li><strong>domain-knowledge.md</strong> captured the industry terminology and business rules</li>
+            </ul>
+
+            <p>This was better. Each file had a clear purpose. Updates were targeted. But the architecture was still limited &mdash; everything was still zipped and imported into Claude Desktop.</p>
+
+            <hr>
+
+            <h3>Phase 2: Claude Code Changed Everything</h3>
+
+            <p>Then Claude Code arrived, and the entire paradigm shifted.</p>
+
+            <p>Claude Code reads <code>.claude/</code> directories natively. No zipping. No importing. No token-heavy skill packages. Just markdown files in a folder structure.</p>
+
+            <p>This meant:</p>
+
+            <ul>
+              <li>Updates were instant &mdash; edit a file, Claude sees it next session</li>
+              <li>Sharing was version control &mdash; git pull and everyone has the latest fleet</li>
+              <li>Structure was unlimited &mdash; as many files as needed</li>
+              <li>The team could contribute &mdash; anyone could edit a knowledge file and commit it</li>
+            </ul>
+
+            <p>I rebuilt everything from scratch using this new architecture.</p>
+
+            <hr>
+
+            <h3>The QE Fleet v1.0: Specialized Agents</h3>
+
+            <p>Instead of one skill that knows everything, I built specialized agents &mdash; each one an expert in exactly one thing:</p>
+
+            <p><strong>Test Design Agents:</strong></p>
+
+            <ul>
+              <li><strong>Ticket Analyzer</strong> &mdash; reads a Jira ticket, extracts requirements, risks, edge cases</li>
+              <li><strong>Test Case Designer</strong> &mdash; designs structured test cases from an analysis</li>
+              <li><strong>CSV Generator</strong> &mdash; produces Xray-compatible CSV files ready for import</li>
+              <li><strong>Bug Reporter</strong> &mdash; turns rough notes into professional bug reports</li>
+            </ul>
+
+            <p><strong>Quality Agents:</strong></p>
+
+            <ul>
+              <li><strong>Regression Risk Analyzer</strong> &mdash; assesses what needs retesting when code changes</li>
+              <li><strong>Release Readiness</strong> &mdash; provides structured go/no-go recommendations</li>
+            </ul>
+
+            <p><strong>Orchestrator Commands:</strong></p>
+
+            <ul>
+              <li><code>/qe-generate-tests</code> &mdash; quick path: ticket to CSV</li>
+              <li><code>/qe-full-pipeline</code> &mdash; analysis, test design, CSV, and automation plan</li>
+            </ul>
+
+            <p>7 agents, 7 skills, 4 commands.</p>
+
+            <hr>
+
+            <h3>The QE Fleet v2.0: From Plans to Working Code</h3>
+
+            <p>v1.0 could analyze tickets and generate test cases. But it couldn't write automation code &mdash; it could only plan.</p>
+
+            <p>v2.0 changed that. We added 6 new agents and went from 7 to 13:</p>
+
+            <ul>
+              <li><strong>Page Object Writer</strong> &mdash; writes actual Python page objects following exact project conventions</li>
+              <li><strong>Test Writer</strong> &mdash; writes pytest test files with correct markers, fixtures, cleanup patterns</li>
+              <li><strong>Locator Scout</strong> &mdash; inspects the actual DOM on staging to extract real locators</li>
+              <li><strong>SFDIPOT Analyzer</strong> &mdash; deep 7-factor analysis using James Bach's HTSM framework</li>
+              <li><strong>Step Rewriter</strong> &mdash; transforms passive &ldquo;Verify X&rdquo; steps into active action verbs</li>
+              <li><strong>Automation Planner</strong> &mdash; plans which tests to automate</li>
+            </ul>
+
+            <p>The fleet could now go from a Jira ticket to working pytest code &mdash; page objects AND test files &mdash; following exact project conventions.</p>
+
+            <hr>
+
+            <h3>The QE Fleet v2.1: Closing the Locator Gap</h3>
+
+            <p>v2.0 had one remaining weakness: the Locator Scout was half-built. v2.1 closed that gap by wiring up Playwright MCP &mdash; a browser server that Claude Code can drive directly.</p>
+
+            <p>What changed:</p>
+
+            <ul>
+              <li>Locator Scout now opens a real browser, navigates to staging, runs JavaScript to read exact class names</li>
+              <li><code>/qe-setup-playwright</code> &mdash; new command for configuration</li>
+              <li><strong>anti-patterns.md</strong> &mdash; a living document capturing automation mistakes</li>
+              <li><strong>setup/ folder</strong> &mdash; portable install package for new team members</li>
+            </ul>
+
+            <hr>
+
+            <h3>What Made It Work: Rules, Not Freedom</h3>
+
+            <p><strong>We didn't ask AI to work instead of us. We used it as an addition to the team.</strong></p>
+
+            <p>The AI writes test cases based on the rules we set as a team. The automation code follows conventions we defined. We didn't give it freedom &mdash; we wanted agents to follow our specific rules.</p>
+
+            <p>This showed up in concrete ways:</p>
+
+            <ul>
+              <li><strong>Terminology Standards:</strong> Never say &ldquo;Happy Path&rdquo; &mdash; use &ldquo;Core Flow&rdquo;. Never use &ldquo;Verify/Check/Confirm&rdquo; as action steps.</li>
+              <li><strong>Priority Framework:</strong> Critical (financial, regulatory), High (core features), Medium (UI), Low (cosmetic)</li>
+              <li><strong>Multi-System Verification:</strong> Any financial action must verify across all system layers</li>
+              <li><strong>Automation Conventions:</strong> All page objects inherit from BasePage, <code>@allure.step</code> decorators, config from <code>.env</code></li>
+            </ul>
+
+            <hr>
+
+            <h3>The Human Factor: Team Adoption</h3>
+
+            <p>One of the biggest challenges wasn't technical &mdash; it was introducing this to the team.</p>
+
+            <p>We weren't worried about AI replacing us. We were looking for ways to eliminate the tedious parts of QA so we could spend more time on the parts that actually require human thinking.</p>
+
+            <p>The team approved the innovation. They saw the time savings. They appreciated that it followed their rules, not its own.</p>
+
+            <hr>
+
+            <h3>The Biggest Problem We Didn't Expect: Garbage In, Garbage Out</h3>
+
+            <p>If the user story is poorly written, the AI produces poor test cases. This isn't an AI limitation &mdash; it's a fundamental truth.</p>
+
+            <p>A human QA engineer, faced with a vague story, walks over to the product owner's desk and asks questions. AI agents can't do that.</p>
+
+            <p><strong>This is why AI cannot replace QA.</strong> Not because it can't write test cases &mdash; but because quality engineering starts before the test cases exist. It starts in refinement, in asking the right questions, in challenging the story before accepting it.</p>
+
+            <hr>
+
+            <h3>What We Still See: AI Makes Mistakes</h3>
+
+            <p>The AI still makes mistakes. Human tracking is always needed.</p>
+
+            <p>But here's the key insight: <strong>it's much easier for a human to review and correct AI-generated work than to write everything from scratch.</strong></p>
+
+            <p>The AI is a time multiplier, not a replacement. It drafts, we refine. It follows rules, we set them.</p>
+
+            <hr>
+
+            <h3>The Evolution in Numbers</h3>
+
+            <div style="overflow-x: auto; margin: 24px 0;">
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px; min-width: 700px;">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--card-border);">
+                    <th style="text-align: left; padding: 12px 16px; color: var(--orange); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 12px;">Feature</th>
+                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v1 Desktop Skill</th>
+                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v1.0 Claude Code</th>
+                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v2.0</th>
+                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v2.1</th>
+                    <th style="text-align: center; padding: 12px 16px; color: var(--gold); font-weight: 600;">Current</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--card-border);">
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Architecture</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Monolith</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">7 agents</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">13 agents</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">13 agents</td>
+                    <td style="padding: 10px 16px; color: var(--gold); text-align: center;">19+ agents</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--card-border);">
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Sharing</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Zip export</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Git</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Git</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Git + Setup pkg</td>
+                    <td style="padding: 10px 16px; color: var(--gold); text-align: center;">Git + Setup pkg</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--card-border);">
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Token Efficiency</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">Very Low</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Medium</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Medium</td>
+                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Medium</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">High (Vector)</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--card-border);">
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Can Write Code</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--card-border);">
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Locator Scouting</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--orange); text-align: center;">Partial</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (MCP)</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (MCP)</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--card-border);">
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Code Indexing</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (Vector)</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--card-border);">
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">SFDIPOT Analysis</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Jira Integration</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
+                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (MCP)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <hr>
+
+            <h3>The Architecture Today</h3>
+
+            <p>The pipeline architecture shows how all the agents work together:</p>
+
+            <pre><code>User: "Full QA for PROJ-1234"
+  &rarr; CLAUDE.md routes
+  &rarr; /qe-full-qa orchestrator
+    &rarr; qe-ticket-analyzer (fetches from Jira)
+    &rarr; qe-sfdipot-analyzer (7-factor analysis)
+    &rarr; qe-test-case-designer + qe-csv-generator
+    &rarr; qe-step-rewriter
+    &rarr; qe-page-object-writer + qe-test-writer
+    &rarr; brutal-honesty-review (quality gate)
+  &rarr; Output: Analysis + CSV + Page Objects + Tests + Quality Score</code></pre>
+
+            <hr>
+
+            <h3>Phase 3: Team Adoption and Real-World Pressure</h3>
+
+            <p>The team adopted it. But adoption brought real-world pressure &mdash; agents needed tuning. Not big architectural changes, but small things: too verbose output, formatting issues, aggressive step rewriting. The iterative polishing that turns a prototype into a reliable tool.</p>
+
+            <hr>
+
+            <h3>Phase 4: The Token Problem &mdash; Hitting the Budget Wall</h3>
+
+            <p>Limited Claude budget. 13 agents, 11+ skill files totaling ~9,000 lines. Every pipeline loaded entire skill files. A single pipeline run consumed 15,000&ndash;45,000 tokens of knowledge alone.</p>
+
+            <hr>
+
+            <h3>The Solution: A Local Vector Store</h3>
+
+            <p>Vector search &mdash; running entirely on laptops with zero API costs. Instead of reading entire files, chop knowledge into small chunks, convert to vectors, store in ChromaDB. When an agent needs context, search for relevant chunks only.</p>
+
+            <p>Results:</p>
+
+            <ul>
+              <li><strong>module-details.md:</strong> 97.9% savings</li>
+              <li><strong>test-automation skill:</strong> 95.4% savings</li>
+              <li><strong>Per pipeline:</strong> ~20,000 tokens drops to ~4,000</li>
+            </ul>
+
+            <hr>
+
+            <h3>Phase 5: The MCP Experiment &mdash; And Why We Came Back to the CLI</h3>
+
+            <p>Tried MCP server for vector search. Windows compatibility nightmares, silent failures, 55,000 tokens schema overhead, complex setup. Came back to the CLI wrapper that was sitting in the codebase all along.</p>
+
+            <p>The best tool integration is the one that adds nothing.</p>
+
+            <hr>
+
+            <h3>Phase 6: Taming the DOM &mdash; Scout Locator Optimization</h3>
+
+            <p>DOM inspection token waste. Built a two-tier system:</p>
+
+            <ul>
+              <li><strong>Option A:</strong> Targeted queries (~90% token reduction)</li>
+              <li><strong>Option B:</strong> Optimized DOM snapshot fallback (~70&ndash;80% reduction)</li>
+            </ul>
+
+            <hr>
+
+            <h3>Agent Hygiene: A Refactoring Pass</h3>
+
+            <p>Six maintenance fixes: hardcoded credentials removed, environment config corrected, missing skill loading added, nonexistent methods fixed, quality gate aligned with CI, review scoping fixed.</p>
+
+            <p>The maintenance tax of an agent fleet: agents only know what their instructions say.</p>
+
+            <hr>
+
+            <h3>Lessons Learned</h3>
+
+            <ol>
+              <li><strong>Start with one thing that works.</strong> Don't try to build the entire fleet at once. Build one agent, make it reliable, then add the next.</li>
+              <li><strong>Separate instructions from knowledge.</strong> A skill should tell an agent what to do. Knowledge files should tell it what it needs to know. Mixing them creates a monolith.</li>
+              <li><strong>Rules come from the team.</strong> The agents follow conventions the team defined. Not conventions the AI invented.</li>
+              <li><strong>Design for human review.</strong> Every output is a draft. The human reviews, corrects, and approves.</li>
+              <li><strong>Sharing matters more than sophistication.</strong> A simple system the whole team uses beats a brilliant system only one person understands.</li>
+              <li><strong>Adopt incrementally.</strong> Introduce one agent at a time. Let the team see the value before adding complexity.</li>
+              <li><strong>AI makes mistakes &mdash; plan for it.</strong> Build review steps into the pipeline. The brutal-honesty reviewer exists for a reason.</li>
+              <li><strong>AI is only as good as the input.</strong> Garbage user stories produce garbage test cases. Quality starts before the AI touches anything.</li>
+              <li><strong>AI can't ask questions &mdash; that's the real gap.</strong> A human QA engineer challenges vague requirements. AI accepts them and produces confident-sounding garbage.</li>
+              <li><strong>Optimization is continuous.</strong> Token costs, output formatting, agent behavior &mdash; all need ongoing tuning.</li>
+              <li><strong>Token budgets force better architecture.</strong> Running out of budget is what pushed us to vector search, which made everything better.</li>
+              <li><strong>Simpler beats cleverer.</strong> The CLI wrapper beat the MCP server. The targeted DOM query beat the full snapshot. Every time we chose simpler, we won.</li>
+            </ol>
+
+            <hr>
+
+            <h3>The Bottom Line</h3>
+
+            <p>We didn't set out to build an AI system. We set out to solve a problem: QA is time-consuming, repetitive work that follows patterns. AI handles the drafting. Humans handle the judgment.</p>
+
+            <p>From one oversized skill to 13 specialized agents &mdash; each following rules we defined, producing work we review, and saving time we reinvest into deeper quality work.</p>
+
+            <p><em>Updated March 2026 &mdash; This is a living document.</em></p>
+
+          </div>
+
+          <div class="article-footer">
+            <div class="article-tags">
+              <span>QA Journey</span><span>Claude Code</span><span>Agentic QE</span><span>Multi-Agent</span><span>Marketech</span><span>Vector Store</span><span>Token Optimization</span><span>Team Adoption</span>
+            </div>
+            <a href="../blog.html" class="btn btn-outline btn-sm">&larr; Back to Articles</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Aleksa Tvrdisic. All rights reserved.</p>
+      <p class="footer-quote">Believe it!</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.classList.add('hidden');
+    });
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  </script>
+</body>
+</html>

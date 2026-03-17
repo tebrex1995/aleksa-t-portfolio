@@ -527,6 +527,11 @@ footer {
   background: rgba(255, 215, 0, 0.08); margin-bottom: 16px;
 }
 
+/* Blog card links (clickable article cards on index) */
+a.blog-card-link { display: block; color: inherit; text-decoration: none; cursor: pointer; }
+a.blog-card-link:hover { transform: translateY(-6px); border-color: rgba(255, 106, 0, 0.3); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+a.blog-card-link.mission-featured:hover { border-color: rgba(255, 215, 0, 0.4); box-shadow: 0 16px 48px rgba(255, 215, 0, 0.08); }
+
 /* Blog responsive */
 @media (max-width: 768px) {
   .blog-hero { padding: 120px 0 60px; }

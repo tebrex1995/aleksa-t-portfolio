@@ -673,9 +673,9 @@ a.blog-card-link { text-decoration: none; color: inherit; }
 }
 @media (max-width: 480px) {
   .hero-name { font-size: 40px; }
-  .hero-cta { flex-direction: column; align-items: center; margin-bottom: 40px; }
+  .hero-cta { flex-direction: column; align-items: center; }
   .btn { width: 100%; text-align: center; }
-  .scroll-indicator { bottom: 20px; }
+  .scroll-indicator { bottom: 16px; }
   .stat-card { padding: 20px; }
   .stat-number { font-size: 28px; }
   .ai-metrics { grid-template-columns: 1fr; }

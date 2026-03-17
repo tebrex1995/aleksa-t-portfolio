@@ -244,19 +244,19 @@ img { max-width: 100%; }
 }
 
 /* ========== EXPERIENCE / TIMELINE ========== */
-.timeline { position: relative; padding-left: 40px; }
+.timeline { position: relative; padding-left: 56px; }
 .timeline::before {
-  content: ''; position: absolute; left: 15px; top: 0; bottom: 0;
+  content: ''; position: absolute; left: 22px; top: 0; bottom: 0;
   width: 2px; background: linear-gradient(to bottom, var(--orange), var(--card-border));
   z-index: 0;
 }
 .timeline-item { position: relative; margin-bottom: 48px; }
 .timeline-item:last-child { margin-bottom: 0; }
 .timeline-badge {
-  position: absolute; left: -40px; top: 0;
-  width: 32px; height: 32px; border-radius: 50%;
+  position: absolute; left: -57px; top: 0;
+  width: 46px; height: 46px; border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 8px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  font-size: 7px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase;
   border: 2px solid; z-index: 2;
   box-shadow: 0 0 0 4px var(--bg);
 }

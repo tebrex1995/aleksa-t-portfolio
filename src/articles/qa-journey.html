@@ -50,11 +50,11 @@
 
   <section class="blog-hero">
     <div class="container">
-      <div class="article-header" style="text-align: center;">
-        <span class="mission-rank s-rank" style="position:relative;display:inline-flex;top:auto;right:auto;margin-bottom:16px;">S</span>
+      <div class="article-header article-page-header">
+        <span class="mission-rank s-rank">S</span>
         <h1>From One Giant Skill to an AI-Powered QA Team: How We Built an Agentic Quality Engineering System</h1>
         <p class="article-subtitle">A story about learning, iterating, and integrating AI agents into a real QA team &mdash; combining human judgment with AI efficiency.</p>
-        <div class="article-meta" style="justify-content: center;">
+        <div class="article-meta article-page-meta">
           <span>February&ndash;March 2026</span>
           <span>&bull;</span>
           <span>~25 min read</span>
@@ -65,7 +65,7 @@
 
   <section class="section">
     <div class="container">
-      <div class="article-card" style="border: none; background: none; padding: 0;">
+      <div class="article-page-wrapper">
         <article class="article">
           <div class="article-body">
 
@@ -247,82 +247,82 @@
 
             <h3>The Evolution in Numbers</h3>
 
-            <div style="overflow-x: auto; margin: 24px 0;">
-              <table style="width: 100%; border-collapse: collapse; font-size: 14px; min-width: 700px;">
+            <div class="evolution-table-wrapper">
+              <table class="evolution-table">
                 <thead>
-                  <tr style="border-bottom: 2px solid var(--card-border);">
-                    <th style="text-align: left; padding: 12px 16px; color: var(--orange); font-weight: 700; letter-spacing: 1px; text-transform: uppercase; font-size: 12px;">Feature</th>
-                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v1 Desktop Skill</th>
-                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v1.0 Claude Code</th>
-                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v2.0</th>
-                    <th style="text-align: center; padding: 12px 16px; color: var(--text-dim); font-weight: 600;">v2.1</th>
-                    <th style="text-align: center; padding: 12px 16px; color: var(--gold); font-weight: 600;">Current</th>
+                  <tr>
+                    <th>Feature</th>
+                    <th>v1 Desktop Skill</th>
+                    <th>v1.0 Claude Code</th>
+                    <th>v2.0</th>
+                    <th>v2.1</th>
+                    <th>Current</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr style="border-bottom: 1px solid var(--card-border);">
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Architecture</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Monolith</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">7 agents</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">13 agents</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">13 agents</td>
-                    <td style="padding: 10px 16px; color: var(--gold); text-align: center;">19+ agents</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--card-border);">
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Sharing</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Zip export</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Git</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Git</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Git + Setup pkg</td>
-                    <td style="padding: 10px 16px; color: var(--gold); text-align: center;">Git + Setup pkg</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--card-border);">
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Token Efficiency</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">Very Low</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Medium</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Medium</td>
-                    <td style="padding: 10px 16px; color: var(--text-dim); text-align: center;">Medium</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">High (Vector)</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--card-border);">
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Can Write Code</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--card-border);">
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Locator Scouting</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--orange); text-align: center;">Partial</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (MCP)</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (MCP)</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--card-border);">
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Code Indexing</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (Vector)</td>
-                  </tr>
-                  <tr style="border-bottom: 1px solid var(--card-border);">
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">SFDIPOT Analysis</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes</td>
+                  <tr>
+                    <td>Architecture</td>
+                    <td>Monolith</td>
+                    <td>7 agents</td>
+                    <td>13 agents</td>
+                    <td>13 agents</td>
+                    <td class="cell-gold">19+ agents</td>
                   </tr>
                   <tr>
-                    <td style="padding: 10px 16px; color: var(--text); font-weight: 500;">Jira Integration</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--red); text-align: center;">No</td>
-                    <td style="padding: 10px 16px; color: var(--green); text-align: center;">Yes (MCP)</td>
+                    <td>Sharing</td>
+                    <td>Zip export</td>
+                    <td>Git</td>
+                    <td>Git</td>
+                    <td>Git + Setup pkg</td>
+                    <td class="cell-gold">Git + Setup pkg</td>
+                  </tr>
+                  <tr>
+                    <td>Token Efficiency</td>
+                    <td class="cell-red">Very Low</td>
+                    <td>Medium</td>
+                    <td>Medium</td>
+                    <td>Medium</td>
+                    <td class="cell-green">High (Vector)</td>
+                  </tr>
+                  <tr>
+                    <td>Can Write Code</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-green">Yes</td>
+                    <td class="cell-green">Yes</td>
+                    <td class="cell-green">Yes</td>
+                  </tr>
+                  <tr>
+                    <td>Locator Scouting</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-orange">Partial</td>
+                    <td class="cell-green">Yes (MCP)</td>
+                    <td class="cell-green">Yes (MCP)</td>
+                  </tr>
+                  <tr>
+                    <td>Code Indexing</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-green">Yes (Vector)</td>
+                  </tr>
+                  <tr>
+                    <td>SFDIPOT Analysis</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-green">Yes</td>
+                    <td class="cell-green">Yes</td>
+                    <td class="cell-green">Yes</td>
+                  </tr>
+                  <tr>
+                    <td>Jira Integration</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-red">No</td>
+                    <td class="cell-green">Yes (MCP)</td>
                   </tr>
                 </tbody>
               </table>

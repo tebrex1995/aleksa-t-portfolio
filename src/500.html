@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>500 — Forbidden Jutsu Backfired | Aleksa Tvrdisic</title>
+  <meta name="description" content="Internal server error. A forbidden technique went wrong.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .error-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+      background: #060609;
+    }
+    .error-kanji {
+      position: absolute;
+      font-size: clamp(200px, 40vw, 400px);
+      color: rgba(255, 106, 0, 0.04);
+      font-weight: 900;
+      z-index: 0;
+      user-select: none;
+      line-height: 1;
+    }
+    .error-content {
+      position: relative;
+      z-index: 1;
+    }
+    .error-label {
+      display: block;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: var(--orange, #ff6a00);
+      margin-bottom: 16px;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .error-code {
+      font-size: clamp(80px, 20vw, 180px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #e2e2e8 0%, #ff8c38 50%, #ff6a00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .error-title {
+      font-size: clamp(18px, 3vw, 24px);
+      color: #e2e2e8;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .error-message {
+      font-size: 16px;
+      color: #8888a0;
+      max-width: 400px;
+      margin: 0 auto 32px;
+      line-height: 1.6;
+    }
+    .error-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .error-footer {
+      font-size: 13px;
+      color: rgba(136, 136, 160, 0.5);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-page">
+    <div class="error-kanji" aria-hidden="true">禁</div>
+    <div class="error-content">
+      <span class="error-label">// Forbidden Jutsu Backfired</span>
+      <h1 class="error-code">500</h1>
+      <p class="error-title">A forbidden technique went wrong. The server couldn't handle it.</p>
+      <p class="error-message">The village is working on repairs. Try again in a moment.</p>
+      <div class="error-actions">
+        <a href="index.html" class="btn btn-primary">Return to Village &rarr;</a>
+      </div>
+      <p class="error-footer">Even the Hokage makes mistakes sometimes.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -349,7 +349,8 @@ img { max-width: 100%; }
 }
 .mission-featured:hover { border-color: rgba(255, 215, 0, 0.4); box-shadow: 0 16px 48px rgba(255, 215, 0, 0.08); }
 .mission-featured-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px; margin-bottom: 12px; }
-.mission-featured h3 { font-size: 24px; padding-right: 50px; }
+.mission-featured h3 { font-size: 24px; padding-right: 0; }
+.mission-featured .mission-rank { position: static; display: inline-flex; margin-bottom: 16px; }
 .mission-metrics { display: flex; flex-wrap: wrap; gap: 8px; }
 .metric-pill {
   font-size: 12px; padding: 4px 12px; font-weight: 600;

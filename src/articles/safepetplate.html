@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Built a Production PWA in 5 Days | Aleksa Tvrdisic</title>
+  <meta name="description" content="How I built SafePetPlate in 5 days using two AI agent fleets: Claude Flow for building and Agentic QE Fleet for quality enforcement.">
+  <meta property="og:title" content="I Built a Production PWA in 5 Days | Aleksa Tvrdisic">
+  <meta property="og:description" content="Here's what happened when I put two AI agent systems in the same codebase with opposite goals.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="../assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../assets/favicon.ico" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <a href="#article-content" class="skip-nav">Skip to article</a>
+
+  <div id="loader">
+    <div class="loader-spiral"></div>
+    <p class="loader-text">Performing Hand Seals<span class="dots">...</span></p>
+  </div>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">
+      <svg class="logo-spiral" viewBox="0 0 40 40" width="32" height="32">
+        <path d="M20 2a18 18 0 0 1 0 36 14 14 0 0 1 0-28 10 10 0 0 1 0 20 6 6 0 0 1 0-12 2 2 0 0 1 0 4" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      </svg>
+      <span>ALEKSA</span>
+    </a>
+    <div class="nav-links">
+      <a href="../index.html#about" data-text="About">About</a>
+      <a href="../index.html#skills" data-text="Skills">Skills</a>
+      <a href="../index.html#experience" data-text="Experience">Experience</a>
+      <a href="../index.html#ai-journey" data-text="AI Innovation">AI Innovation</a>
+      <a href="../index.html#projects" data-text="Projects">Projects</a>
+      <a href="../blog.html" class="active" data-text="Blog">Blog</a>
+      <a href="../index.html#contact" data-text="Contact">Contact</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="article-content">
+
+  <section class="blog-hero">
+    <div class="container">
+      <div class="article-header" style="text-align: center;">
+        <span class="mission-rank ss-rank" style="position:relative;display:inline-flex;top:auto;right:auto;margin-bottom:16px;">SS</span>
+        <h1>I Built a Production PWA in 5 Days. One AI Fleet Built It. Another's Job Was to Break It.</h1>
+        <p class="article-subtitle">Here's what happened when I put two AI agent systems in the same codebase with opposite goals.</p>
+        <div class="article-meta" style="justify-content: center;">
+          <span>February 21, 2026</span>
+          <span>&bull;</span>
+          <span>~8 min read</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-card article-card-featured" style="border: none; background: none; padding: 0;">
+        <article class="article">
+          <div class="article-body">
+            <p><a href="https://safepetplate.com" target="_blank" rel="noopener">SafePetPlate</a> is a free app that lets pet owners instantly check if a food is safe for their dog or cat &mdash; stoplight-style: TOXIC, CAUTION, or SAFE. Works offline, 2 locales, 193 foods in the database backed by veterinary sources.</p>
+
+            <p>I built the entire thing in 5 days using two AI agent fleets: <strong>Claude Flow</strong> (the builders) and <strong>Agentic QE Fleet</strong> (the quality enforcers). And I want to be transparent about what that actually looked like &mdash; not just the wins, but the moments where 91% test coverage masked two broken search bugs and 2,313 lines of tests that tested nothing.</p>
+
+            <hr>
+
+            <h3>The Two Fleets</h3>
+
+            <p><strong>Claude Flow</strong> orchestrates multi-agent swarms with a queen-coordinator model. One orchestrator decomposes tasks and dispatches to 5&ndash;8 specialized workers running in parallel. For each sprint &mdash; Data Layer, Core UI, PWA, i18n, SEO, Testing &mdash; it would spin up a swarm and ship features in 20&ndash;30 minutes.</p>
+
+            <p><strong>Agentic QE Fleet</strong> runs a parallel hierarchy with a completely different mandate: find every bug, gap, and lie in what Claude Flow built. It includes 13 specialized agents &mdash; coverage specialists, security reviewers, performance analyzers, mutation testers, a &ldquo;Devil's Advocate&rdquo; that challenges other agents' findings &mdash; all running concurrently.</p>
+
+            <p>The key: they share memory, but not goals.</p>
+
+            <hr>
+
+            <h3>The Numbers</h3>
+
+            <div class="article-stats">
+              <div class="article-stat"><strong>Time</strong><span>5 days (vs. 6&ndash;8 weeks manual)</span></div>
+              <div class="article-stat"><strong>Testing</strong><span>676 Tests | 42 E2E | 91% Coverage</span></div>
+              <div class="article-stat"><strong>Performance</strong><span>100 A11y | 100 SEO | 94 Perf</span></div>
+              <div class="article-stat"><strong>Data</strong><span>193 foods | 31+ vet sources | 780+ pages</span></div>
+              <div class="article-stat"><strong>Human Factor</strong><span>19 review rounds | 76+ bugs caught</span></div>
+            </div>
+
+            <hr>
+
+            <h3>The Story Nobody Posts About</h3>
+
+            <p>After Sprint 2, Claude Flow had delivered 666 tests with 91% coverage. I could have shipped.</p>
+
+            <p>The QE fleet ran a brutal-honesty review and found that <strong>6 test files (2,313 lines) imported local helper functions that reimplemented the component behavior and tested those helpers &mdash; not the actual production code.</strong> Coverage tools counted the lines as covered. The tests were structurally correct. They were also completely useless.</p>
+
+            <p>The QE fleet deleted all 6 files.</p>
+
+            <p>Then &mdash; while manually testing the live app &mdash; two search bugs surfaced that 91% coverage had completely missed:</p>
+
+            <ul>
+              <li>Searching &ldquo;fish&rdquo; returned &ldquo;mushrooms&rdquo;</li>
+              <li>Searching &ldquo;salmon&rdquo; returned &ldquo;almonds&rdquo;</li>
+            </ul>
+
+            <p>The bug: tests used a 6-food synthetic dataset where these fuzzy-match collisions couldn't exist. The real 193-food database had enough similar character sequences to confuse the algorithm. No automated agent caught this. A human did.</p>
+
+            <p>Four review rounds later: threshold tightened, 3-character minimum added, word-boundary prefix constraint added, tests rewritten against real data.</p>
+
+            <p>Test count dropped from 666 to 500. The 500 actually meant something.</p>
+
+            <hr>
+
+            <h3>The Moment That Defined the Collaboration</h3>
+
+            <p>Sprint 4 was i18n. Claude Flow delivered locale switching in 30 minutes. Tests passed. The user's language preference was saving to localStorage.</p>
+
+            <p>Problem: <strong>next-intl middleware runs server-side. It reads the NEXT_LOCALE cookie.</strong> It has zero access to localStorage.</p>
+
+            <p>The language preference was being saved somewhere nothing could read it. The test suite had no way to catch this &mdash; there was no integration test that ran the middleware against the saved state.</p>
+
+            <p>QE fleet caught it in structural review. 4.5 minutes, one agent, rewired both components to use the next-intl router with proper cookie management.</p>
+
+            <p>This is the class of bug that AI builds with confidence: locally correct, systemically wrong. The code does exactly what it says. It just talks to the wrong system.</p>
+
+            <hr>
+
+            <h3>What the QE Fleet Actually Does</h3>
+
+            <p>Every feature went through this loop:</p>
+
+            <pre><code>Claude Flow implements &rarr; QE brutal-honesty review &rarr; fix &rarr; review again &rarr; ship</code></pre>
+
+            <p>The review modes aren't polite. &ldquo;Ramsay mode&rdquo; is adversarial criticism: <em>&ldquo;these 6 files are theater, delete them.&rdquo;</em> &ldquo;Linus mode&rdquo; is technical precision: <em>&ldquo;your prefix constraint matches the full field string, not individual words &mdash; 'but' won't find 'Peanut Butter'.&rdquo;</em></p>
+
+            <p>The convergence pattern held every sprint:</p>
+
+            <ul>
+              <li><strong>Round 1</strong>: Structural failures (dead code, wrong APIs, wrong persistence layer)</li>
+              <li><strong>Round 2</strong>: Algorithm bugs and edge cases</li>
+              <li><strong>Round 3</strong>: Code quality and test traps</li>
+              <li><strong>Round 4</strong>: Nits &mdash; you're done</li>
+            </ul>
+
+            <p>19 rounds across 6 sprints. 76+ issues surfaced. Zero were caught by automated tests first.</p>
+
+            <hr>
+
+            <h3>The Meta-Lesson</h3>
+
+            <p>A fix swarm ran on 21 identified issues and closed all 21 tickets. Build was green. 642 tests passed.</p>
+
+            <p>Then the BH review ran on the <em>fixes themselves</em> and found:</p>
+
+            <ul>
+              <li>One &ldquo;SRI hash added&rdquo; fix was actually a TODO comment. The CDN script still loaded with zero integrity verification.</li>
+              <li>One &ldquo;MessageChannel test added&rdquo; fired a completely different code path from the one it claimed to test. Coverage went up. The actual function stayed at 0%.</li>
+              <li>One clearTimeout fix was correct &mdash; but the commit deleted 387 lines of related tests to &ldquo;clean up legacy duplicates.&rdquo;</li>
+            </ul>
+
+            <p><strong>The fix swarm optimizes for closing tickets, not for solving problems.</strong></p>
+
+            <p>Apply the brutal-honesty review to your fixes, not just your features.</p>
+
+            <hr>
+
+            <h3>Why Two Fleets Beat One</h3>
+
+            <p>A single AI agent that builds and reviews its own code has a fundamental blind spot &mdash; it cannot adversarially challenge its own assumptions. It will write tests that confirm what it already believes is true.</p>
+
+            <p>Separating builder and reviewer into distinct agent hierarchies creates genuine tension:</p>
+
+            <ul>
+              <li>Claude Flow builds a sprint in 30 minutes</li>
+              <li>QE fleet reviews and fixes in 2&ndash;5 minutes</li>
+              <li>The asymmetry is the feature</li>
+            </ul>
+
+            <p>The builder optimizes for shipping. The QE fleet optimizes for catching what the builder missed. The collaboration only works because they have conflicting incentives &mdash; and shared memory to argue over.</p>
+
+            <hr>
+
+            <h3>The Stack</h3>
+
+            <p><strong>Built with:</strong> Next.js 14 App Router, TypeScript, Tailwind CSS, Vitest, Playwright (Python), k6, next-intl, Serwist PWA, Claude Flow, Agentic QE Fleet v3</p>
+
+            <p><strong>Architecture:</strong> Domain-Driven Design (7 bounded contexts), hybrid SSR/SSG rendering, per-pet toxicity model (separate dog + cat data per food entry)</p>
+
+            <p><strong>Quality gates enforced on every push:</strong> 85% coverage threshold &middot; JSON schema validation &middot; TypeScript strict &middot; ESLint zero-warning &middot; 42 E2E tests &middot; Lighthouse A11Y 100</p>
+
+            <hr>
+
+            <h3>Credits</h3>
+
+            <p><strong>Claude Flow</strong> &mdash; the multi-agent builder framework that powered every sprint. Built by ruvnet. The vector memory layer (ruvector-postgres) is what made shared state between the two fleets coherent across sessions.</p>
+
+            <p><strong>Dragan Spiridonov</strong> &mdash; QE architect and the person who originally shaped the quality engineering philosophy behind this project. His approach to adversarial testing and brutal-honesty reviews is what made the QE fleet more than a test generator.</p>
+
+            <hr>
+
+            <h3>What I'd Tell Anyone Trying This</h3>
+
+            <ol>
+              <li><strong>Don't skip the adversarial review.</strong> Test generation is table stakes. The brutal-honesty review is where the real bugs surface.</li>
+              <li><strong>Test with real data from day one.</strong> Synthetic toy datasets hide the collision cases that matter. The fish/mushrooms bug only exists in a 193-food database.</li>
+              <li><strong>Multi-agent parallelism needs shared memory.</strong> Without a shared namespace, agents duplicate work and step on each other. Both fleets read and write to the same project memory. That's what makes the collaboration coherent.</li>
+              <li><strong>The bottleneck shifts from code to decisions.</strong> I didn't spend time writing tests or wiring CI. I spent time deciding: which foods matter, what to do with ambiguous toxicity data, how to handle UNKNOWN safety levels. AI executes. You strategize.</li>
+              <li><strong>Review the fixes.</strong> Not just the features.</li>
+              <li><strong>Humans still need to verify everything.</strong> The search bugs above were found by manually using the live app &mdash; not by any agent, not by any coverage report, not by any review round. The fleets are force multipliers. They are not a replacement for human judgment and real-world testing. Ship the AI-built features. Then actually use the product.</li>
+            </ol>
+
+            <p>The live app: <a href="https://safepetplate.com" target="_blank" rel="noopener">safepetplate.com</a></p>
+          </div>
+
+          <div class="article-footer">
+            <div class="article-tags">
+              <span>SafePetPlate</span><span>Claude Flow</span><span>Agentic QE</span><span>Multi-Agent</span><span>PWA</span><span>Next.js</span>
+            </div>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://www.linkedin.com/pulse/building-production-app-5-days-two-ai-agent-fleets-aleksa-tvrdisic-f84bf/" target="_blank" rel="noopener" class="btn btn-outline btn-sm">Read on LinkedIn &rarr;</a>
+              <a href="../blog.html" class="btn btn-outline btn-sm">&larr; Back to Articles</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Aleksa Tvrdisic. All rights reserved.</p>
+      <p class="footer-quote">Believe it!</p>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      if (loader) loader.classList.add('hidden');
+    });
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (navToggle && navLinks) {
+      navToggle.addEventListener('click', () => {
+        navToggle.classList.toggle('active');
+        navLinks.classList.toggle('open');
+      });
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.classList.remove('active');
+          navLinks.classList.remove('open');
+        });
+      });
+    }
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  </script>
+</body>
+</html>
